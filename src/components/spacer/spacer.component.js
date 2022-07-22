@@ -13,19 +13,18 @@ const positionVariant = {
   bottom: "marginBottom",
 };
 
-const getVariant = (position, size, theme) => {
-  const sizeIndex = sizeVariant[size];
-  const property = positionVariant[position];
-  const value = theme.space[sizeIndex];
+export const Spacer = ({ position = "top", size = "small", children }) => {
+  const getVariant = (position, size, theme) => {
+    const sizeIndex = sizeVariant[size];
+    const property = positionVariant[position];
+    const value = theme.space[sizeIndex];
+    console.log(property, value);
+    return `${property}:${value}`;
+  };
 
-  return `${property}:${value}`;
-};
+  const Spacer = styled.View`
+    ${(props) => getVariant(position, size, props.theme)}
+  `;
 
-export const Spacer = styled.View`
-  ${({ position, size, theme }) => getVariant(position, size, theme)}
-`;
-
-Spacer.defaultProps = {
-  position: "top",
-  size: "small",
+  return <Spacer>{children}</Spacer>;
 };
