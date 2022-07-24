@@ -1,5 +1,5 @@
 import camelize from "camelize";
-import { locations } from "./location.service";
+import { locations } from "./location.mock";
 
 export const LocationRequest = (location) => {
   return new Promise((resolve, reject) => {
@@ -15,6 +15,6 @@ export const TransformedLocation = (locationData) => {
   const formattedData = camelize(locationData);
 
   const { geometry = {} } = formattedData.results[0];
-    const { lat, lng } = geometry.location;
+  const { lat, lng } = geometry.location;
   return { lat, lng };
 };
