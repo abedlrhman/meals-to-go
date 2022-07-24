@@ -20,6 +20,7 @@ import {
 } from "./restaurant-info-card.style";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
+  
   const {
     name = "Some Restaurant",
     icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
@@ -36,7 +37,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
 
   return (
     <RestaurantCard elevation={5}>
-      <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
+       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
         <Text variant="label">{name}</Text>
 
@@ -67,7 +68,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
         </Section>
 
         <Address>{address}</Address>
-      </Info>
+      </Info> 
     </RestaurantCard>
   );
 };

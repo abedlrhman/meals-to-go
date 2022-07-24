@@ -18,7 +18,6 @@ export const Spacer = ({ position = "top", size = "small", children }) => {
     const sizeIndex = sizeVariant[size];
     const property = positionVariant[position];
     const value = theme.space[sizeIndex];
-    console.log(property, value);
     return `${property}:${value}`;
   };
 
