@@ -14,13 +14,12 @@ import {
   Address,
   Info,
   Rating,
-  Section, 
+  Section,
   SectionEnd,
   Icon,
 } from "./restaurant-info-card.style";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
-  
   const {
     name = "Some Restaurant",
     icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
@@ -31,13 +30,14 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     isOpenNow = true,
     rating = 4,
     isClosedTemporarily = true,
+    placeId,
   } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
 
   return (
     <RestaurantCard elevation={5}>
-       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
+      <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
         <Text variant="label">{name}</Text>
 
@@ -45,7 +45,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
           <Rating>
             {ratingArray.map((item, index) => (
               <SvgXml
-                key={"rating-stars-" + index}
+                key={`rating-stars-${placeId}-${index}`}
                 xml={star}
                 width={20}
                 height={20}
@@ -68,7 +68,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
         </Section>
 
         <Address>{address}</Address>
-      </Info> 
+      </Info>
     </RestaurantCard>
   );
 };
