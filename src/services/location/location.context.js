@@ -10,24 +10,24 @@ export const LocationProvider = ({ children }) => {
   const [location, setLocation] = useState(null);
 
   const onSearch = (searchKeyword) => {
-    if (!searchKeyword.length) return;
     setIsLoading(true);
     setKeyword(searchKeyword);
-    LocationRequest(searchKeyword.toLowerCase())
-      .then(TransformedLocation)
-      .then((res) => {
-        setLocation(res);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        setHasError(err);
-        setIsLoading(false);
-      });
   };
 
   useEffect(() => {
-    onSearch(keyword);
-  }, []);
+    if (keyword.length) {
+      LocationRequest(keyword.toLowerCase())
+        .then(TransformedLocation)
+        .then((res) => {
+          setLocation(res);
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          setHasError(err);
+          setIsLoading(false);
+        });
+    }
+  }, [keyword]);
 
   return (
     <LocationContext.Provider
