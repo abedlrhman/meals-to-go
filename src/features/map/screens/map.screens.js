@@ -6,6 +6,7 @@ import MapView from "react-native-maps";
 import Search from "../components/search.component";
 import { LocationContext } from "../../../services/location/location.context";
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
+import MapCalloute from "../components/map-calloute.component";
 
 const Map = styled(MapView)`
   height: 100%;
@@ -39,7 +40,6 @@ const MapScreen = () => {
         }}
       >
         {restaurantsData.map((restaurant) => {
-          console.log(restaurant);
           return (
             <MapView.Marker
               key={restaurant.name}
@@ -48,7 +48,11 @@ const MapScreen = () => {
                 latitude: restaurant.geometry.location.lat,
                 longitude: restaurant.geometry.location.lng,
               }}
-            />
+            >
+              <MapView.Callout>
+                <MapCalloute restaurant={restaurant} />
+              </MapView.Callout>
+            </MapView.Marker>
           );
         })}
       </Map>
