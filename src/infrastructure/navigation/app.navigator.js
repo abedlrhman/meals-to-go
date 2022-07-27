@@ -5,13 +5,10 @@ import { SafeArea } from "../../components/utility/safe-area.component";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import RestaurantNavigator from "./restaurant.navigator";
+import MapScreen from "../../features/map/screens/map.screens";
 
 const Tab = createBottomTabNavigator();
-const Map = () => (
-  <SafeArea>
-    <Text>map</Text>
-  </SafeArea>
-);
+
 const Setting = () => (
   <SafeArea>
     <Text>setting</Text>
@@ -39,7 +36,7 @@ const AppNavigator = () => {
         })}
       >
         <Tab.Screen name="RestaurantsStack" component={RestaurantNavigator} />
-        <Tab.Screen name="Map" component={Map} />
+        <Tab.Screen name="Map" component={MapScreen} />
         <Tab.Screen name="Settings" component={Setting} />
       </Tab.Navigator>
     </NavigationContainer>
