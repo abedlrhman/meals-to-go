@@ -18,6 +18,7 @@ const FavoritesBar = ( { restaurant, onNavigate } ) =>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {restaurant.map((item) => (
           <TouchableOpacity
+            key={item.placeId}
             onPress={() => onNavigate("RestaurantDetail", { restaurant: item })}
           >
             <Spacer position="left" size="medium" key={item.name}>
@@ -26,7 +27,6 @@ const FavoritesBar = ( { restaurant, onNavigate } ) =>
           </TouchableOpacity>
         ))}
       </ScrollView>
-      <Text>FavoritesBar</Text>
     </FavoritesWrapper>
   );
 };

@@ -22,9 +22,9 @@ const Item = styled.View`
   align-items: center;
 `;
 const isAndriod = Platform.OS === "android";
-const CompactRestaurant = ( { restaurant } ) =>
+const CompactRestaurant = ( { restaurant, isMap } ) =>
 {
-    const Image = isAndriod ? CompactWebView : CompactImage;
+    const Image = isAndriod && isMap ? CompactWebView : CompactImage;
 
 
   return (

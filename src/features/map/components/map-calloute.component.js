@@ -8,7 +8,7 @@ const MyText = styled.Text``;
 const MapCalloute = ({ restaurant }) => {
   console.log(restaurant);
   return (
-   <CompactRestaurant restaurant={restaurant} />
+   <CompactRestaurant isMap restaurant={restaurant} />
   );
 };
 
