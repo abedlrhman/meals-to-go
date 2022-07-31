@@ -6,12 +6,24 @@ import {
   AccountConteiner,
   AccountCover,
   AuthButton,
+  AnimationWrapper,
 } from "../components/account.styles";
+import LottieView from "lottie-react-native";
 
-const AccountScreen = ({navigation}) => {
+const AccountScreen = ({ navigation }) => {
   return (
     <AccountBackground>
       <AccountCover />
+      <AnimationWrapper>
+      <LottieView
+        key="animation"
+        autoPlay={true}
+        loop={true}
+        resizeMode="cover"
+        source={require("../../../../assets/watermelon.json")}
+      />
+
+      </AnimationWrapper>
       <AccountConteiner>
         <AuthButton
           icon="lock-open-outline"
